@@ -10,7 +10,10 @@ export async function inviteMember(formData: FormData) {
   const role = String(formData.get("role") || "colaborador");
   if (!email || !["admin", "gestor", "colaborador"].includes(role)) return;
   const admin = createAdminClient();
-  const { data, error } = await admin.auth.admin.inviteUserByEmail(email, { data: { full_name: fullName }, redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"}/login` });
+  const { data, error } = await admin.auth.admin.inviteUserByEmail(email, {
+    data: { full_name: fullName },
+    redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"}/definir-senha`,
+  });
   if (error || !data.user) throw new Error(error?.message || "Não foi possível enviar o convite.");
   const { data: roleData } = await admin.from("roles").select("id").eq("slug", role).single();
   if (roleData) await admin.from("user_roles").upsert({ user_id: data.user.id, role_id: roleData.id }, { onConflict: "user_id,role_id" });

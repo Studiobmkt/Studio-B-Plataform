@@ -15,6 +15,6 @@ export async function signIn(formData: FormData) {
 export async function requestPasswordReset(formData: FormData) {
   const email = String(formData.get("email") || "").trim();
   const supabase = await createClient();
-  await supabase.auth.resetPasswordForEmail(email, { redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"}/redefinir-senha` });
+  await supabase.auth.resetPasswordForEmail(email, { redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"}/definir-senha` });
   redirect("/login?message=Se o e-mail estiver cadastrado, enviaremos as instruções de recuperação.");
 }
