@@ -1,0 +1,1 @@
+import { BasePage } from "@/components/base-page"; export default function Page(){return <BasePage title="Projetos" description="Tráfego pago, produção criativa e eventos em uma operação conectada."/>}

@@ -1,0 +1,2 @@
+import { Construction } from "lucide-react";
+export function BasePage({ title, description }: { title: string; description: string }) { return <section className="base-page"><p className="eyebrow">EM PREPARAÇÃO</p><h1>{title}</h1><p>{description}</p><div className="empty-state bordered"><Construction size={38}/><h3>Módulo preparado para a próxima fase</h3><p>A estrutura de navegação e o controle de acesso já estão ativos. As operações serão incluídas sem simular dados.</p></div></section>; }

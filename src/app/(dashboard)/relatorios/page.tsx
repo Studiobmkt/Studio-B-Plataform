@@ -1,0 +1,1 @@
+import { BasePage } from "@/components/base-page"; export default function Page(){return <BasePage title="Relatórios & performance" description="Indicadores operacionais, financeiros e de marketing."/>}

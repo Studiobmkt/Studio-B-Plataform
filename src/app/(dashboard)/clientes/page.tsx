@@ -1,0 +1,1 @@
+import { BasePage } from "@/components/base-page"; export default function Page(){return <BasePage title="Clientes & marcas" description="Cadastro comercial, marcas vinculadas e histórico de relacionamento."/>}
