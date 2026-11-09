@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { BarChart3, Building2, ChevronDown, ClipboardList, FileText, FolderKanban, LayoutDashboard, Settings, Users } from "lucide-react";
 
-const main = [["/dashboard", "Painel inicial", LayoutDashboard], ["/solicitacoes", "Solicitações", ClipboardList], ["/clientes", "Clientes & marcas", Building2], ["/onboarding", "Onboarding", FileText], ["/projetos", "Projetos", FolderKanban], ["/relatorios", "Relatórios", BarChart3]] as const;
+const main = [["/dashboard", "Painel inicial", LayoutDashboard], ["/solicitacoes", "Solicitações ao time", ClipboardList], ["/clientes", "Clientes & marcas", Building2], ["/onboarding", "Onboarding", FileText], ["/projetos", "Projetos", FolderKanban], ["/relatorios", "Relatórios & performance", BarChart3]] as const;
 const admin = [["/admin/equipe", "Equipe", Users], ["/admin/agencia", "Gestão da agência", Settings]] as const;
 
 export function Sidebar({ role = "colaborador" }: { role?: string }) {

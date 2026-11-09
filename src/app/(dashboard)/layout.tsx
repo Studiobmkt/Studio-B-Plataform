@@ -9,5 +9,9 @@ export default async function DashboardLayout({ children }: { children: React.Re
   const { data: profile } = await supabase.from("profiles").select("full_name").eq("id", user.id).single();
   const { data: assignments } = await supabase.from("user_roles").select("roles(slug)").eq("user_id", user.id);
   const role = assignments?.find(Boolean)?.roles as unknown as { slug: string } | null;
-  return <div className="app-shell"><Sidebar role={role?.slug}/><div className="app-main"><Topbar name={profile?.full_name} email={user.email ?? ""}/><main className="page-content">{children}</main></div></div>;
+  const isAdmin = assignments?.some((assignment) => {
+    const assignedRole = assignment.roles as unknown as { slug: string } | null;
+    return assignedRole?.slug === "admin";
+  });
+  return <div className="app-shell"><Sidebar role={isAdmin ? "admin" : role?.slug}/><div className="app-main"><Topbar name={profile?.full_name} email={user.email ?? ""}/><main className="page-content">{children}</main></div></div>;
 }
